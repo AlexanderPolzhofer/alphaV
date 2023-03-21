@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Card } from './components/Card/Card';
 import { useFetch } from './hooks/useFetch';
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
 
   console.log(data);
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Card />
+    </div>
+  );
 }
 
 export default App;
