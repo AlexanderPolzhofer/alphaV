@@ -9,11 +9,23 @@ function App() {
   }`;
   const { loading, data } = useFetch(url);
 
-  console.log(data);
-
   return (
     <div className="App">
-      <Card />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gridTemplateRows: 'auto',
+          gap: '50px',
+        }}
+      >
+        {data &&
+          data.feed.map((data) => (
+            <div className="card">
+              <Card data={data} />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
