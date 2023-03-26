@@ -9,19 +9,14 @@ function App() {
   }`;
   const { loading, data } = useFetch(url);
 
+  console.log(data);
+
   return (
     <div className="App">
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gridTemplateRows: 'auto',
-          gap: '50px',
-        }}
-      >
+      <div className="app-content">
         {data &&
-          data.feed.map((data) => (
-            <div className="card">
+          data.feed.map((data, idx) => (
+            <div className="card" key={idx}>
               <Card data={data} />
             </div>
           ))}

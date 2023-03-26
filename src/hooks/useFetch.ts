@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { CardNewsData } from '../types/types';
 
 export const useFetch = (url: string) => {
   const [loading, setLoading] = React.useState(false);
-  const [data, setData] = React.useState();
+  const [data, setData] = React.useState<CardNewsData>();
 
   const loadData = React.useCallback(async () => {
     setLoading(true);
@@ -14,7 +15,7 @@ export const useFetch = (url: string) => {
 
   React.useEffect(() => {
     loadData();
-  }, [url, loadData]);
+  }, [url]);
 
   return { loading, data };
 };

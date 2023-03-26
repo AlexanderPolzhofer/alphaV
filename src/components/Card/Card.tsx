@@ -1,34 +1,32 @@
 import React from 'react';
+import { FeedData } from '../../types/types';
 import { createDate } from '../../util/createDate';
+import './Card.css';
 
 interface CardProps {
-  data: { [key: string]: string }[];
+  data: FeedData;
 }
 
 export const Card: React.FC<CardProps> = ({ data }) => {
   const { banner_image, summary, title, url, time_published } = data;
 
   return (
-    <div
-      style={{
-        height: '444px',
-        width: '333px',
-        boxShadow: '3px 3px 3px 0.5px #888888',
-        borderRadius: '5px',
-        backgroundColor: '#FFFFFF',
-        padding: '8px',
-        color: 'black',
-        textOverflow: 'hidden',
-      }}
-    >
-      <div>
-        <a href={`${url}`} target="_blank" style={{ textDecoration: 'none' }}>
-          <img width="100%" src={`${banner_image}`} />
-        </a>
+    <div className="card-container">
+      <div className="image-wrapper">
+        <img width="100%" src={`${banner_image}`} />
       </div>
       <div>
-        <p>{createDate(time_published)}</p>
-        <span style={{ fontWeight: '700' }}>{`${title}`}</span>
+        <div className="link-date-wrapper">
+          <p>{createDate(time_published)}</p>
+          <a href={`${url}`} target="_blank">
+            <img src="/src/assets/readMore.svg" className="icon" />
+          </a>
+        </div>
+        <span>
+          <b>
+            {title.trim().length < 89 ? `${title}` : title.substring(0, 55)} ...
+          </b>
+        </span>
       </div>
       <div>
         <p>
