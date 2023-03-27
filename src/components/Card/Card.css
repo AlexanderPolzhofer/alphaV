@@ -15,12 +15,17 @@
   box-shadow: 3px 3px 3px 2.5px #f60;
 }
 
+.date {
+  text-shadow: 0.5px 0.5px 1px gray;
+  color: #f60;
+}
+
 .image-wrapper {
   height: 44%;
   overflow: hidden;
 }
 
-.link-date-wrapper {
+.link-text-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,6 +33,10 @@
 
 a {
   text-decoration: none;
+}
+
+b {
+  text-shadow: 0.5px 0.5px gray;
 }
 
 a:hover {

@@ -5,9 +5,10 @@
 
 .app-content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 22em);
   grid-template-rows: auto;
-  gap: 50px;
+  gap: 55px;
 }
 
 .card {

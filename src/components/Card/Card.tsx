@@ -8,31 +8,51 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ data }) => {
-  const { banner_image, summary, title, url, time_published } = data;
+  const {
+    banner_image,
+    overall_sentiment_label,
+    overall_sentiment_score,
+    title,
+    url,
+    time_published,
+    ticker_sentiment,
+  } = data;
 
   return (
     <div className="card-container">
       <div className="image-wrapper">
-        <img width="100%" src={`${banner_image}`} />
+        <img width="100%" src={`${banner_image ?? '/src/assets/react.svg'}`} />
       </div>
       <div>
-        <div className="link-date-wrapper">
-          <p>{createDate(time_published)}</p>
+        <div className="link-text-wrapper">
+          <p className="date">{createDate(time_published)}</p>
           <a href={`${url}`} target="_blank">
-            <img src="/src/assets/readMore.svg" className="icon" />
+            <img src="/src/assets/read-more.svg" className="icon" />
           </a>
         </div>
         <span>
           <b>
-            {title.trim().length < 89 ? `${title}` : title.substring(0, 55)} ...
+            {title.split(' ').length > 5
+              ? `${title.substring(0, 34)} ...`
+              : title}
           </b>
         </span>
       </div>
       <div>
         <p>
-          {`${summary}
-        `.substring(0, 100)}{' '}
-          ...
+          <b>Sentiment:</b> {` ${overall_sentiment_label}`}
+        </p>
+        <hr />
+        <p>
+          <b>Score:</b> {` ${overall_sentiment_score}`}
+        </p>
+        <hr />
+        <p className="link-text-wrapper">
+          <div>
+            <b>Ticker Items:</b>
+            {` ${ticker_sentiment.length}`}
+          </div>
+          <img src="/src/assets/arrow-right.svg" className="icon" />
         </p>
       </div>
     </div>
