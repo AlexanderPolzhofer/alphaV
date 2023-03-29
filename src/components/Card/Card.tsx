@@ -48,10 +48,10 @@ export const Card: React.FC<CardProps> = ({ data }) => {
         </p>
         <hr />
         <p className="link-text-wrapper">
-          <div>
+          <span>
             <b>Ticker Items:</b>
             {` ${ticker_sentiment.length}`}
-          </div>
+          </span>
           <img src="/src/assets/arrow-right.svg" className="icon" />
         </p>
       </div>

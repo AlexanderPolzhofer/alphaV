@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  border-bottom: 1px solid gray;
+  padding: 13px;
+  justify-content: flex-end;
+  margin-bottom: 21px;
+}
+
+.link {
+  text-decoration: none;
+  color: #f60;
+  text-shadow: 1px 1px gray;
+}

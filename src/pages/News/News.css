@@ -1,0 +1,12 @@
+.news-content {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 22em);
+  grid-template-rows: auto;
+  gap: 55px;
+}
+
+.card {
+  justify-self: center;
+  overflow: hidden;
+}

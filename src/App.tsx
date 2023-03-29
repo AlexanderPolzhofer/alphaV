@@ -1,7 +1,10 @@
 import React from 'react';
-import './App.css';
-import { Card } from './components/Card/Card';
 import { useFetch } from './hooks/useFetch';
+import { Route, Routes } from 'react-router-dom';
+import { News } from './pages/News/News';
+import { Home } from './pages/Home/Home';
+import { Navbar } from './components/Navbar/Navbar';
+import './App.css';
 
 function App() {
   const url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=${
@@ -13,14 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="app-content">
-        {data &&
-          data.feed.map((data, idx) => (
-            <div className="card" key={idx}>
-              <Card data={data} />
-            </div>
-          ))}
-      </div>
+      <Navbar />
+      <Routes>
+        <Route element={<News data={data} />} path={'/news'} />
+        <Route element={<Home />} path={'*'} />
+      </Routes>
     </div>
   );
 }
