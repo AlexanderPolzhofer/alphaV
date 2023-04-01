@@ -4,25 +4,39 @@ import { Route, Routes } from 'react-router-dom';
 import { News } from './pages/News/News';
 import { Home } from './pages/Home/Home';
 import { Navbar } from './components/Navbar/Navbar';
+import { TickerSentimentData } from './types/types';
+import { TickerItems } from './pages/TickerItems/TickerItems';
 import './App.css';
 
-function App() {
-  const url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=${
-    import.meta.env.VITE_API_KEY
-  }`;
-  const { loading, data } = useFetch(url);
+const App: React.FC = () => {
+  const [tickerItems, setTickerItems] = React.useState<
+    TickerSentimentData[] | undefined
+  >(undefined);
+  const url = import.meta.env.VITE_NEWS_URL;
+  const { data } = useFetch(url);
 
-  console.log(data);
+  const handleTickerItemsClick = (data: TickerSentimentData[]) => {
+    setTickerItems(data);
+  };
 
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route element={<News data={data} />} path={'/news'} />
+        <Route
+          element={
+            <News data={data} handleTickerItemsClick={handleTickerItemsClick} />
+          }
+          path={'/news'}
+        />
+        <Route
+          element={<TickerItems tickerItems={tickerItems} />}
+          path={'/news/ticker-sentiment'}
+        />
         <Route element={<Home />} path={'*'} />
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

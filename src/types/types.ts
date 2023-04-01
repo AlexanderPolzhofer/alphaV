@@ -32,3 +32,17 @@ export interface CardNewsData {
   relevance_score_definition: string;
   sentiment_score_definition: string;
 }
+
+export interface NewsProps {
+  data?: CardNewsData;
+  handleTickerItemsClick: (data: TickerSentimentData[]) => void;
+}
+
+export interface CardProps {
+  data: FeedData;
+  handleTickerItemsClick: (data: TickerSentimentData[]) => void;
+}
+
+export interface TickerItemsProps {
+  tickerItems: TickerSentimentData[] | undefined;
+}

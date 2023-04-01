@@ -1,13 +1,10 @@
 import React from 'react';
-import { FeedData } from '../../types/types';
+import { Link } from 'react-router-dom';
+import { CardProps } from '../../types/types';
 import { createDate } from '../../util/createDate';
 import './Card.css';
 
-interface CardProps {
-  data: FeedData;
-}
-
-export const Card: React.FC<CardProps> = ({ data }) => {
+export const Card: React.FC<CardProps> = ({ data, handleTickerItemsClick }) => {
   const {
     banner_image,
     overall_sentiment_label,
@@ -30,13 +27,13 @@ export const Card: React.FC<CardProps> = ({ data }) => {
             <img src="/src/assets/read-more.svg" className="icon" />
           </a>
         </div>
-        <span>
-          <b>
+        <b>
+          <span className="title">
             {title.split(' ').length > 5
               ? `${title.substring(0, 34)} ...`
               : title}
-          </b>
-        </span>
+          </span>
+        </b>
       </div>
       <div>
         <p>
@@ -52,7 +49,12 @@ export const Card: React.FC<CardProps> = ({ data }) => {
             <b>Ticker Items:</b>
             {` ${ticker_sentiment.length}`}
           </span>
-          <img src="/src/assets/arrow-right.svg" className="icon" />
+          <Link
+            to={'/news/ticker-sentiment'}
+            onClick={() => handleTickerItemsClick(ticker_sentiment)}
+          >
+            <img src="/src/assets/arrow-right.svg" className="icon" />
+          </Link>
         </p>
       </div>
     </div>

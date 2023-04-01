@@ -13,3 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+p {
+  margin: 13px;
+}
+
+.title {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px dashed gray;
+  display: block;
+  text-align: center;
+  background: #ffffff11;
+}

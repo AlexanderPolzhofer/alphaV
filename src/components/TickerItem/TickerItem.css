@@ -1,0 +1,19 @@
+.ticker-item-container {
+  box-shadow: 3px 3px 3px 2.5px #888888;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 8px;
+  color: black;
+  text-overflow: hidden;
+  margin: 5px;
+  height: 222px;
+  width: 333px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.item {
+  justify-self: center;
+  overflow: hidden;
+}
