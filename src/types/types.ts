@@ -46,3 +46,6 @@ export interface CardProps {
 export interface TickerItemsProps {
   tickerItems: TickerSentimentData[] | undefined;
 }
+export interface TickerItemProps {
+  tickerItem: TickerSentimentData;
+}

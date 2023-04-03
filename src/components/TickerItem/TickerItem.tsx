@@ -1,10 +1,6 @@
 import React from 'react';
-import { TickerSentimentData } from '../../types/types';
+import { TickerItemProps } from '../../types/types';
 import './TickerItem.css';
-
-export interface TickerItemProps {
-  tickerItem: TickerSentimentData;
-}
 
 export const TickerItem: React.FC<TickerItemProps> = ({ tickerItem }) => {
   const {
