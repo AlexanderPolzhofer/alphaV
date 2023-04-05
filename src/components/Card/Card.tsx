@@ -51,7 +51,7 @@ export const Card: React.FC<CardProps> = ({ data, handleTickerItemsClick }) => {
           </span>
           <Link
             to={'/news/ticker-sentiment'}
-            onClick={() => handleTickerItemsClick(ticker_sentiment)}
+            onClick={() => handleTickerItemsClick(title, ticker_sentiment)}
           >
             <img src="/src/assets/arrow-right.svg" className="icon" />
           </Link>

@@ -35,16 +35,25 @@ export interface CardNewsData {
 
 export interface NewsProps {
   data?: CardNewsData;
-  handleTickerItemsClick: (data: TickerSentimentData[]) => void;
+  handleTickerItemsClick: (
+    title: string,
+    tickerData: TickerSentimentData[]
+  ) => void;
 }
 
 export interface CardProps {
   data: FeedData;
-  handleTickerItemsClick: (data: TickerSentimentData[]) => void;
+  handleTickerItemsClick: (
+    title: string,
+    tickerData: TickerSentimentData[]
+  ) => void;
 }
 
 export interface TickerItemsProps {
-  tickerItems: TickerSentimentData[] | undefined;
+  tickerItems: {
+    title: string;
+    tickerData: TickerSentimentData[];
+  };
 }
 export interface TickerItemProps {
   tickerItem: TickerSentimentData;

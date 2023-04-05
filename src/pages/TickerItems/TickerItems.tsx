@@ -5,10 +5,13 @@ import './TickerItems.css';
 
 export const TickerItems: React.FC<TickerItemsProps> = ({ tickerItems }) => {
   return (
-    <div className="ticker-items-container">
-      {tickerItems?.map((tickerItem) => (
-        <TickerItem tickerItem={tickerItem} />
-      ))}
-    </div>
+    <>
+      <h1>{tickerItems.title}</h1>
+      <div className="ticker-items-container">
+        {tickerItems.tickerData.map((tickerItem) => (
+          <TickerItem tickerItem={tickerItem} key={tickerItem.ticker} />
+        ))}
+      </div>
+    </>
   );
 };

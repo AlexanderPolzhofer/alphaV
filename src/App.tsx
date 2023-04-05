@@ -9,15 +9,21 @@ import { TickerItems } from './pages/TickerItems/TickerItems';
 import './App.css';
 
 const App: React.FC = () => {
-  const [tickerItems, setTickerItems] = React.useState<
-    TickerSentimentData[] | undefined
-  >(undefined);
+  const [tickerItems, setTickerItems] = React.useState<{
+    title: string;
+    tickerData: TickerSentimentData[];
+  }>({ title: '', tickerData: [] });
   const url = import.meta.env.VITE_NEWS_URL;
   const { data } = useFetch(url);
 
-  const handleTickerItemsClick = (data: TickerSentimentData[]) => {
-    setTickerItems(data);
+  const handleTickerItemsClick = (
+    title: string,
+    tickerData: TickerSentimentData[]
+  ) => {
+    setTickerItems({ title, tickerData });
   };
+
+  console.log(data);
 
   return (
     <div className="App">

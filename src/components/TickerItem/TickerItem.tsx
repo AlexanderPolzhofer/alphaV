@@ -11,10 +11,13 @@ export const TickerItem: React.FC<TickerItemProps> = ({ tickerItem }) => {
   } = tickerItem;
   return (
     <div className="ticker-item-container">
-      <div>{ticker}</div>
-      <div>Label: {ticker_sentiment_label}</div>
-      <div>Score: {ticker_sentiment_score}</div>
-      <div>Relevance Score: {relevance_score}</div>
+      <div className="ticker">{ticker}</div>
+      <div className="center-text">{ticker_sentiment_label}</div>
+      <div className="score">
+        <span className="score-label">Relevance Score:</span> {relevance_score}
+        <span className="score-label">Sentiment Score:</span>{' '}
+        {ticker_sentiment_score}
+      </div>
     </div>
   );
 };

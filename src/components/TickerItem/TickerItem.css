@@ -17,3 +17,35 @@
   justify-self: center;
   overflow: hidden;
 }
+
+.ticker {
+  text-align: center;
+  border: 1px dashed gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 25%;
+  gap: 13px;
+  font-weight: 600;
+}
+
+.center-text {
+  text-align: center;
+  padding: 8px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  width: fit-content;
+}
+
+.score-label {
+  font-weight: 600;
+  display: block;
+}
+
+h1 {
+ text-align: center;
+ padding: 13px 0;
+}
