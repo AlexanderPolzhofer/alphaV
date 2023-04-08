@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { News } from './pages/News/News';
 import { Home } from './pages/Home/Home';
 import { Navbar } from './components/Navbar/Navbar';
-import { TickerSentimentData } from './types/types';
+import { TYPE, TickerSentimentData } from './types/types';
 import { TickerItems } from './pages/TickerItems/TickerItems';
 import './App.css';
 
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     tickerData: TickerSentimentData[];
   }>({ title: '', tickerData: [] });
   const url = import.meta.env.VITE_NEWS_URL;
-  const { data } = useFetch(url);
+  const { data } = useFetch(url, TYPE.CARD_NEWS_DATA);
 
   const handleTickerItemsClick = (
     title: string,

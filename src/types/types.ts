@@ -58,3 +58,12 @@ export interface TickerItemsProps {
 export interface TickerItemProps {
   tickerItem: TickerSentimentData;
 }
+
+export interface WeeklyData {
+  [key: string]: { [key: string]: string };
+}
+
+export enum TYPE {
+  CARD_NEWS_DATA = 'CARD_NEWS_DATA',
+  WEEKLY_DATA = 'WEEKLY_DATA',
+}
