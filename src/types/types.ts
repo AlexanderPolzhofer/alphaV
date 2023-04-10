@@ -63,7 +63,14 @@ export interface WeeklyData {
   [key: string]: { [key: string]: string };
 }
 
+export interface Vwap {
+  [date: string]: {
+    VWAP: string;
+  };
+}
+
 export enum TYPE {
   CARD_NEWS_DATA = 'CARD_NEWS_DATA',
   WEEKLY_DATA = 'WEEKLY_DATA',
+  VWAP = 'VWAP',
 }

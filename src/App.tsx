@@ -23,8 +23,6 @@ const App: React.FC = () => {
     setTickerItems({ title, tickerData });
   };
 
-  console.log(data);
-
   return (
     <div className="App">
       <Navbar />
