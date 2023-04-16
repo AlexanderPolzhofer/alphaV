@@ -1,11 +1,11 @@
-import { ComboTestChart } from '../../components/Chart/ComboTestChart';
-import { TestChart } from '../../components/Chart/TestChart';
+import { LineOrBarChart } from '../../components/Chart/LineOrBarChart';
 
-export const Home = () => {
+interface HomeProps {}
+
+export const Home: React.FC<HomeProps> = () => {
   return (
     <>
-      <ComboTestChart />
-      <TestChart />
+      <LineOrBarChart type="LineChart" />
     </>
   );
 };

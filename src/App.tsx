@@ -14,7 +14,9 @@ const App: React.FC = () => {
     tickerData: TickerSentimentData[];
   }>({ title: '', tickerData: [] });
   const url = import.meta.env.VITE_NEWS_URL;
+  const weeklyData = import.meta.env.VITE_WEEKLY_DATA;
   const { data } = useFetch(url, TYPE.CARD_NEWS_DATA);
+  const { barData } = useFetch(weeklyData, TYPE.WEEKLY_DATA);
 
   const handleTickerItemsClick = (
     title: string,
