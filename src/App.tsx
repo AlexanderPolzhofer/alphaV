@@ -7,6 +7,11 @@ import { Navbar } from './components/Navbar/Navbar';
 import { TYPE, TickerSentimentData } from './types/types';
 import { TickerItems } from './pages/TickerItems/TickerItems';
 import './App.css';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
 
 const App: React.FC = () => {
   const [tickerItems, setTickerItems] = React.useState<{
@@ -25,23 +30,30 @@ const App: React.FC = () => {
     setTickerItems({ title, tickerData });
   };
 
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route
-          element={
-            <News data={data} handleTickerItemsClick={handleTickerItemsClick} />
-          }
-          path={'/news'}
-        />
-        <Route
-          element={<TickerItems tickerItems={tickerItems} />}
-          path={'/news/ticker-sentiment'}
-        />
-        <Route element={<Home />} path={'*'} />
-      </Routes>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route
+            element={
+              <News
+                data={data}
+                handleTickerItemsClick={handleTickerItemsClick}
+              />
+            }
+            path={'/news'}
+          />
+          <Route
+            element={<TickerItems tickerItems={tickerItems} />}
+            path={'/news/ticker-sentiment'}
+          />
+          <Route element={<Home />} path={'*'} />
+        </Routes>
+      </div>
+    </QueryClientProvider>
   );
 };
 
